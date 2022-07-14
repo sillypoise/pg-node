@@ -1,2 +1,3 @@
 packages:
     - "projects/vanilla-web-server/**"
+    - "projects/vanilla-http-caching/**"
