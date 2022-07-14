@@ -4,8 +4,11 @@ import { writeBar } from "../../models/bar.model";
 
 async function httpWriteBar(req: Request, res: Response) {
     let val = req.body.value;
-    let newBarValues = await writeBar(val);
-    res.status(200).json(newBarValues);
+    let query = setTimeout(async () => {
+        let newBarValues = await writeBar(val);
+        return newBarValues;
+    }, 5000);
+    return res.status(200).json(query);
 }
 
 export { httpWriteBar };

@@ -2,3 +2,4 @@ packages:
     - "projects/vanilla-web-server/**"
     - "projects/vanilla-http-caching/**"
     - "projects/express-web-server/**"
+    - "projects/express-vanilla-graphql/**"
