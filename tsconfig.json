@@ -23,4 +23,5 @@
         "importsNotUsedAsValues": "error",
         "checkJs": true
     }
+    // "exclude": ["./dist/**/*"]
 }
