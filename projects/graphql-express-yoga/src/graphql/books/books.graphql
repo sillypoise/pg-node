@@ -1,0 +1,24 @@
+type Query {
+    book(id: ID!): Book
+    books: [Book]!
+    booksByPrice(minPrice: Float!, maxPrice: Float!): [Book]!
+}
+
+type Mutation {
+    addNewBookReview(id: ID!, rating: Int!): Book
+}
+
+type Book {
+    id: ID!
+    title: String
+    author: Author!
+    isLoaned: Boolean
+    price: Float
+    cover(style: CoverStyle): String
+    reviews: [Int]
+}
+
+enum CoverStyle {
+    HARDCOVER
+    PAPERBACK
+}
