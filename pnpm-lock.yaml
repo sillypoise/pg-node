@@ -58,6 +58,12 @@ importers:
     devDependencies:
       '@types/express': 4.17.13
 
+  projects/trpc-web-server:
+    specifiers:
+      '@trpc/server': ^9.26.2
+    dependencies:
+      '@trpc/server': 9.26.2
+
   projects/websockets-socketio:
     specifiers:
       socket.io: ^4.5.1
@@ -382,6 +388,10 @@ packages:
       '@swc/core-win32-ia32-msvc': 1.2.216
       '@swc/core-win32-x64-msvc': 1.2.216
     dev: true
+
+  /@trpc/server/9.26.2:
+    resolution: {integrity: sha512-J1kP072cVYC5H2qFhiLQ/gV57s0of++9QLLKf9n8mVfx300tecKQW2eu/oFvRCDPRTTQ1prHz9zm15IzLwoRrw==}
+    dev: false
 
   /@types/body-parser/1.19.2:
     resolution: {integrity: sha512-ALYone6pm6QmwZoAgeyNksccT9Q4AWZQ6PvfwR37GT6r6FWUPguq6sUmNGSMV2Wr761oQoBxwGGa6DR5o1DC9g==}
