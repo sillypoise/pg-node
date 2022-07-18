@@ -3,3 +3,4 @@ packages:
     - "projects/vanilla-http-caching/**"
     - "projects/express-web-server/**"
     - "projects/graphql-express-yoga/**"
+    - "projects/websockets-socketio/**"
