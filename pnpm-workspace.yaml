@@ -5,3 +5,4 @@ packages:
     - "projects/graphql-express-yoga/**"
     - "projects/websockets-socketio/**"
     - "projects/trpc-web-server/**"
+    - "projects/redis-express-server/**"
