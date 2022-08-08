@@ -6,3 +6,4 @@ packages:
     - "projects/websockets-socketio/**"
     - "projects/trpc-web-server/**"
     - "projects/redis-express-server/**"
+    - "projects/sqlite-basic/**"
