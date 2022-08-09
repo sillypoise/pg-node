@@ -1,0 +1,14 @@
+{
+    "name": "auth-vanilla",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "nodemon ./dist/server.js",
+        "build": "swc src -d dist",
+        "build:watch": "swc src -d dist --watch"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+}
