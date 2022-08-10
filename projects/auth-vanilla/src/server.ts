@@ -1,13 +1,20 @@
 import dotenv from "dotenv";
-import { createServer, IncomingMessage, ServerResponse } from "http";
+import { createServer } from "http";
+
+import { app } from "./app";
 
 dotenv.config();
 const PORT = process.env["PORT"] || 8000;
 
-let server = createServer((req: IncomingMessage, res: ServerResponse) => {
-    res.writeHead(200, { "Content-Type": "text/plain" });
-    res.end("Hello World\n");
-});
+let server = createServer(app);
 
-console.log(`🚀 Up and running at port: ${PORT}`);
-server.listen(PORT);
+async function startServer() {
+    // await environment async ops
+    // ...
+    // start server
+    server.listen(PORT, () => {
+        console.log(`🚀 Up and running at port: ${PORT}`);
+    });
+}
+
+startServer();
