@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import { hash, argon2id } from "argon2";
+import { hash } from "argon2";
 import { db } from "../services/db";
 
 let api = express.Router();
@@ -20,7 +20,13 @@ api.post("/auth/register", async (req: Request, res: Response) => {
         let { email, passwd }: { email: string; passwd: string } = req.body;
         let hashedPasswd = await hash(passwd);
 
-        console.log(hashedPasswd);
+        (await db).run(
+            "INSERT INTO users (email, passwd) VALUES(:email, :passwd)",
+            {
+                ":email": email,
+                ":passwd": hashedPasswd,
+            }
+        );
 
         return res.status(200).json("📝 Registration Successful");
     } catch (e) {
