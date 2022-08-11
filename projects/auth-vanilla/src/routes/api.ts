@@ -59,17 +59,35 @@ api.post("/register", async (req: Request, res: Response) => {
 });
 
 api.get("/cookies", (req: Request, res: Response) => {
-    res.status(200);
-    res.cookie("cookie", "cookieValue");
-    res.cookie("signedCookie", "signedCookieValue", {
-        signed: true,
-    });
-    // log regular cookies, does not show signed cookies
-    console.log("🍪", req.cookies);
-    // log signed cookies
-    console.log("🔑🍪", req.signedCookies);
+    try {
+        res.status(200);
+        res.cookie("cookie", "cookieValue");
+        res.cookie("signedCookie", "signedCookieValue", {
+            signed: true,
+        });
+        // log regular cookies, does not show signed cookies
+        console.log("🍪", req.cookies);
+        // log signed cookies
+        console.log("🔑🍪", req.signedCookies);
+        return res.json("Testing cookies 🍪🍪🍪");
+    } catch (e) {
+        console.log(e);
+        return res
+            .status(500)
+            .json("An error ocurred during cookie assignment");
+    }
+});
 
-    return res.json("Testing cookies 🍪🍪🍪");
+api.get("/sessions", (req: Request, res: Response) => {
+    try {
+        // Fancy sessino management
+        return res.send(200).json("session created");
+    } catch (e) {
+        console.log(e);
+        return res
+            .status(500)
+            .json("an error ocurred during cookie assignment");
+    }
 });
 
 export { api };
