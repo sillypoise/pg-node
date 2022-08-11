@@ -1,8 +1,12 @@
-import express, { Request, Response } from "express";
+import express, { NextFunction, Request, Response } from "express";
 import { hash, verify } from "argon2";
 import { db } from "../services/db";
 
 let api = express.Router();
+
+api.get("/", (_req: Request, res: Response) => {
+    return res.status(200).json("Congrats, you're home 🏠!");
+});
 
 // api.use("/auth", authRouter);
 api.post("/auth", async (req: Request, res: Response) => {
@@ -78,10 +82,43 @@ api.get("/cookies", (req: Request, res: Response) => {
     }
 });
 
-api.get("/sessions", (req: Request, res: Response) => {
+// * Redeclaring the SessionData module in order to have correct typing in `req.session`
+declare module "express-session" {
+    interface SessionData {
+        user: string;
+        userID: number;
+        ip: string;
+        userAgent: string | undefined;
+    }
+}
+
+api.get("/sessions", (req: Request, res: Response, next: NextFunction) => {
     try {
-        // Fancy sessino management
-        return res.send(200).json("session created");
+        // Check if user is authenticated
+        // if (!req.session.user) {
+        //     return res.status(401).json("Unauthorized");
+        // }
+
+        // If authenticated create session or validate session
+
+        // regenerate the session, which is good practice to help
+        // guard against forms of session fixation
+        return req.session.regenerate((err: any) => {
+            if (err) next(err);
+
+            // set session data, typically a userID
+            req.session.user = req.body.email;
+            req.session.userID = 1;
+            req.session.ip = req.ip;
+            req.session.userAgent = req.headers["user-agent"];
+
+            // save the session before redirection to ensure page
+            // load does not happen before session is saved
+            req.session.save((err: Error) => {
+                if (err) next(err);
+                res.status(200).json("Session created");
+            });
+        });
     } catch (e) {
         console.log(e);
         return res
