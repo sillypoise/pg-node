@@ -12,9 +12,6 @@ let cookieSecret = String(process.env["COOKIE_SECRET"]);
 
 app.use(express.json());
 
-// ! cookieParser can be used in conjuction with express-session as long as the secret is the same.
-app.use(cookieParser(cookieSecret));
-
 app.use(
     session({
         secret: cookieSecret,

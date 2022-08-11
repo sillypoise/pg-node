@@ -116,7 +116,7 @@ api.get("/sessions", (req: Request, res: Response, next: NextFunction) => {
             // load does not happen before session is saved
             req.session.save((err: Error) => {
                 if (err) next(err);
-                res.status(200).json("Session created");
+                res.status(200).json({ token: req.sessionID });
             });
         });
     } catch (e) {
