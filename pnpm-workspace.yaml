@@ -7,3 +7,4 @@ packages:
     - "projects/trpc-web-server/**"
     - "projects/redis-express-server/**"
     - "projects/sqlite-basic/**"
+    - "projects/server-side-sessions/**"
