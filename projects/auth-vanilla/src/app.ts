@@ -1,6 +1,5 @@
 import dotenv from "dotenv";
 import express, { Request, Response } from "express";
-import cookieParser from "cookie-parser";
 import session from "express-session";
 let SQLiteStore = require("connect-sqlite3")(session);
 import { api } from "./routes/api";
