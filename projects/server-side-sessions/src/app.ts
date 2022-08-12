@@ -1,11 +1,11 @@
 import dotenv from "dotenv";
 import express from "express";
 import session from "express-session";
+let SQLiteStore = require("connect-sqlite3")(session);
 
 import { api } from "./routes/api";
 
 dotenv.config();
-
 let cookieSecret = String(process.env["COOKIE_SECRET"]!);
 
 let app = express();
@@ -21,7 +21,11 @@ app.use(
         resave: false,
         saveUninitialized: false,
         name: "serverZesh",
-        // store
+        store: new SQLiteStore({
+            table: "sessions",
+            db: "auth.db",
+            dir: "./db",
+        }),
     })
 );
 
