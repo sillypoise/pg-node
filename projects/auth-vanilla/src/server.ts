@@ -10,7 +10,6 @@ const PORT = process.env["PORT"] || 8000;
 let server = createServer(app);
 
 async function startServer() {
-    // await environment async ops
     await db;
     // start server
     server.listen(PORT, () => {
