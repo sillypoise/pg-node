@@ -22,6 +22,6 @@
         "noUnusedParameters": true,
         "importsNotUsedAsValues": "error",
         "checkJs": true
-    },
-    "exclude": ["./dist/**/*"]
+    }
+    // "exclude": ["./dist/**/*"]
 }
