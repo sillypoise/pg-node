@@ -1,21 +1,14 @@
 import express from "express";
 import passport from "passport";
-import {
-    httpAuth,
-    httpGoogleAuth,
-    httpGoogleAuthCallback,
-} from "./auth.controller";
+import { httpGoogleAuth, httpGoogleAuthCallback } from "./auth.controller";
 
 let authRouter = express.Router();
 
-authRouter.post("/", httpAuth);
+// Route for authenticating with Google
+authRouter.get("/google", passport.authenticate("google"), httpGoogleAuth);
 
-authRouter.get(
-    "/google",
-    passport.authenticate("google", { scope: ["email"] }),
-    httpGoogleAuth
-);
-
+// Route for callback after authenticating with Google,
+// must match the callback URL in the Google App settings
 authRouter.get(
     "/google/callback",
     passport.authenticate("google", {
