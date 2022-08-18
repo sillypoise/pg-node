@@ -21,7 +21,15 @@ async function httpGoogleAuth(
     res: express.Response,
     next: express.NextFunction
 ) {
-    // TODO: implement google auth
+    console.log("Google will now redirect you to authenticate...");
 }
 
-export { httpAuth, httpGoogleAuth };
+async function httpGoogleAuthCallback(
+    req: express.Request,
+    res: express.Response,
+    next: express.NextFunction
+) {
+    console.log("Google called us back! You're authenticated! I think...");
+}
+
+export { httpAuth, httpGoogleAuth, httpGoogleAuthCallback };

@@ -9,3 +9,4 @@ packages:
     - "projects/sqlite-basic/**"
     - "projects/auth-vanilla/**"
     - "projects/server-side-sessions/**"
+    - "projects/auth-oauth-passport/**"
