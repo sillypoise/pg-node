@@ -16,4 +16,12 @@ async function httpAuth(
     }
 }
 
-export { httpAuth };
+async function httpGoogleAuth(
+    req: express.Request,
+    res: express.Response,
+    next: express.NextFunction
+) {
+    // TODO: implement google auth
+}
+
+export { httpAuth, httpGoogleAuth };
