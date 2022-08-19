@@ -1,7 +1,7 @@
 import passport from "passport";
 import { Strategy as OAuthGoogleStrategy } from "passport-google-oauth20";
 
-import { config } from "../app_config";
+import { config } from "../appConfig";
 
 const AUTH_OPTIONS = {
     // callback URL must match the callback URL in the Google App settings
