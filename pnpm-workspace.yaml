@@ -10,3 +10,4 @@ packages:
     - "projects/auth-vanilla/**"
     - "projects/server-side-sessions/**"
     - "projects/auth-oauth-passport/**"
+    - "projects/auth-passport-cookie-session/**"
