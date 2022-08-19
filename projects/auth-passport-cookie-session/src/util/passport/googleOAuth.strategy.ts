@@ -17,7 +17,6 @@ function verifyCallback(
     profile: any,
     done: any
 ) {
-    console.log("Google profile", profile);
     // Do whatever you want with the profile info you get back
 
     // Add your own logic here to check if the user is in your database
@@ -25,6 +24,15 @@ function verifyCallback(
     // Alternatively, you can just call done with `false` to make the user a new user
     // If the user is not in your database, call done with `false`
     done(null, profile);
+}
+
+// Re-declare the interface to include the new property
+declare global {
+    namespace Express {
+        interface User {
+            id: string;
+        }
+    }
 }
 
 function passportGoogleOAuth() {

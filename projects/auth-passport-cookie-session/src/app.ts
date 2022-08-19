@@ -10,12 +10,23 @@ const app = express();
 
 passportGoogleOAuth();
 
+// Passport populate the user object with the Google profile info we choose to keep
+passport.serializeUser((user, done) => {
+    console.log("serializeUser", user);
+    done(null, user);
+});
+
+// Passport read the session of incoming request and places the user object on req.user
+passport.deserializeUser((user: Express.User, done) => {
+    console.log("deserializeUser", user);
+    done(null, user);
+});
+
 app.use(
     cookieSession({
         name: "sesh",
         maxAge: 24 * 60 * 60 * 1000,
         keys: [config.COOkIE_SECRET_1, config.COOKIE_SECRET_2],
-        httpOnly: true,
         secure: false,
     })
 );

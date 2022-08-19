@@ -44,12 +44,12 @@ importers:
       '@types/passport-google-oauth20': ^2.0.11
       cookie-session: ^2.0.0
       express: ^4.18.1
-      passport: ^0.6.0
+      passport: 0.5.3
       passport-google-oauth20: ^2.0.0
     dependencies:
       cookie-session: 2.0.0
       express: 4.18.1
-      passport: 0.6.0
+      passport: 0.5.3
       passport-google-oauth20: 2.0.0
     devDependencies:
       '@types/cookie-session': 2.0.44
@@ -1907,6 +1907,14 @@ packages:
   /passport-strategy/1.0.0:
     resolution: {integrity: sha512-CB97UUvDKJde2V0KDWWB3lyf6PC3FaZP7YxZ2G8OAtn9p4HI9j9JLP9qjOGZFvyl8uwNT8qM+hGnz/n16NI7oA==}
     engines: {node: '>= 0.4.0'}
+    dev: false
+
+  /passport/0.5.3:
+    resolution: {integrity: sha512-gGc+70h4gGdBWNsR3FuV3byLDY6KBTJAIExGFXTpQaYfbbcHCBlRRKx7RBQSpqEqc5Hh2qVzRs7ssvSfOpkUEA==}
+    engines: {node: '>= 0.4.0'}
+    dependencies:
+      passport-strategy: 1.0.0
+      pause: 0.0.1
     dev: false
 
   /passport/0.6.0:

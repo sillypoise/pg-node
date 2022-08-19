@@ -17,7 +17,6 @@ googleOAuthRouter.get(
     passport.authenticate("google", {
         failureRedirect: "/v1/auth/google/failure",
         successRedirect: "/v1/home",
-        session: false,
     }),
     httpGoogleAuthCallback
 );

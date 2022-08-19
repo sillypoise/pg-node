@@ -6,7 +6,8 @@ let apiRouter = express.Router();
 
 apiRouter.use("/auth", authRouter);
 
-apiRouter.get("/home", (_req, res) => {
+apiRouter.get("/home", (req, res) => {
+    console.log("sesh", req.user);
     res.sendFile(path.join(__dirname, "../../public/index.html"));
 });
 
