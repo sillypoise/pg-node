@@ -8,6 +8,9 @@ let server = createServer((req: IncomingMessage, res: ServerResponse) => {
     switch (req.url) {
         case "/": {
             let html = createPage("Home");
+            res.writeHead(200, {
+                "cache-control": "no-store",
+            });
             res.end(html);
             break;
         }
