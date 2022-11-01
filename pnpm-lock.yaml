@@ -45,7 +45,10 @@ importers:
       '@types/passport-google-oauth20': 2.0.11
 
   projects/auth-ory-kratos:
-    specifiers: {}
+    specifiers:
+      '@ory/client': 0.2.0-alpha.60
+    dependencies:
+      '@ory/client': 0.2.0-alpha.60
 
   projects/auth-vanilla:
     specifiers:
@@ -368,6 +371,14 @@ packages:
       - '@swc/core'
       - debug
     dev: true
+
+  /@ory/client/0.2.0-alpha.60:
+    resolution: {integrity: sha512-fGovJ/xIl7dvJJP9/IL4Xu1yiOCy9pvmkfj2xnHZbPrIbL9c9tqVcC3CSlzBq6zJQZMC3XI7VmZ8uEQ+cF4suw==}
+    dependencies:
+      axios: 0.21.4
+    transitivePeerDependencies:
+      - debug
+    dev: false
 
   /@parcel/watcher/2.0.4:
     resolution: {integrity: sha512-cTDi+FUDBIUOBKEtj+nhiJ71AZVlkAsQFuGQTun5tV9mwQBQgZvhCzG+URPQc8myeN32yRVZEfVAPCs1RW+Jvg==}
@@ -849,6 +860,14 @@ packages:
   /asynckit/0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
     dev: true
+
+  /axios/0.21.4:
+    resolution: {integrity: sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==}
+    dependencies:
+      follow-redirects: 1.15.2
+    transitivePeerDependencies:
+      - debug
+    dev: false
 
   /axios/1.1.3:
     resolution: {integrity: sha512-00tXVRwKx/FZr/IDVFt4C+f9FYairX517WoGCL6dpOntqLkZofjhu43F/Xl44UOpqa+9sLFDrG/XAnFsUYgkDA==}
@@ -1540,7 +1559,6 @@ packages:
     peerDependenciesMeta:
       debug:
         optional: true
-    dev: true
 
   /form-data-encoder/1.7.2:
     resolution: {integrity: sha512-qfqtYan3rxrnCk1VYaA4H+Ms9xdpPqvLZa6xmMgFvhO32x7/3J/ExcTd6qpxM0vH2GdMI+poehyBZvqfMTto8A==}
