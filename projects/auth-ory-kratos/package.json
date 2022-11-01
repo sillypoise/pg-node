@@ -1,0 +1,14 @@
+{
+    "name": "auth-ory-kratos",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "run-p \"dev:*\"",
+        "dev:swc": "swc src -d dist --watch",
+        "dev:express": "nodemon ./dist/server.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+}
